@@ -1,0 +1,13 @@
+fastapi==0.109.0
+uvicorn[standard]==0.25.0
+flet==0.21.0
+flet-fastapi==0.21.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+aiohttp==3.9.1
+sqlalchemy[asyncio]==2.0.25
+aiosqlite==0.19.0
+cryptography==41.0.7
+pydantic[email]==2.5.3
+pydantic-settings==2.1.0
