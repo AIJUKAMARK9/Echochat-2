@@ -137,3 +137,7 @@ async def websocket_chat(websocket: WebSocket, token: str = Query(...), manager:
                         for m in group.members: await manager.send_personal_message(payload, m.id)
     except WebSocketDisconnect: manager.disconnect(user.id, websocket)
     except Exception: manager.disconnect(user.id, websocket)
+@router.get("/contacts")
+async def list_contacts(current_user=Depends(get_current_user), db=Depends(get_db)):
+    users = (await db.execute(select(User).where(User.id != current_user.id))).scalars().all()
+    return [{"id": u.id, "username": u.username, "email": u.email} for u in users]
